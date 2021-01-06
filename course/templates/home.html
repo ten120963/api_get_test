@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if course %}
+	{{ course }}
+{% endif %}	
+
+{% if api %}
+	{% if api == "Error..." %}
+		<h2>There was a problem...</h2>
+	{% elif 'detail' in api %}
+		<h2>Course was not found!</h2>
+	{% else %}	
+		<h1>ID: {{ api.id }}</h1><br/>
+		URL: {{ api.url }}<br/>
+		Name: {{ api.name }}<br/>
+		Language: {{ api.language }}<br/>
+		Price: {{ api.price }}<br/><br/>
+	{% endif %}	
+{% endif %}
+
+{% endblock %}
